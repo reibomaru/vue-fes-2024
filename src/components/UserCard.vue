@@ -9,7 +9,7 @@
     </div>
     <suspense :suspensible="shouldWaitChartLoaded">
       <div class="chart">
-        <score-chart :score="score" />
+        <score-chart :user-id="userId" />
       </div>
       <template #fallback>
         <skeleton-score-chart />
@@ -19,14 +19,14 @@
 </template>
 
 <script setup lang="ts">
-import ScoreChart from "./ScoreChart.vue";
+import ScoreChart from "../containers/ScoreChart.vue";
 import SkeletonScoreChart from "./SkeletonScoreChart.vue";
 
 defineProps<{
   name: string;
   description: string;
   blobImageUrl: string;
-  score: Promise<number[]>;
+  userId: string;
   shouldWaitChartLoaded?: boolean;
 }>();
 </script>

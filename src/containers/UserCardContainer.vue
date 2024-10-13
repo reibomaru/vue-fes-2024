@@ -2,24 +2,19 @@
   <user-card
     :name="user.name"
     :description="user.description"
-    :score="score"
+    :user-id="user.id"
     :blob-image-url="imageUrl"
   />
 </template>
 
 <script setup lang="ts">
-import {
-  useBlobImageAsync,
-  useScoreAsync,
-  User,
-} from "../composables/useExternalData";
+import { useBlobImageAsync, User } from "../composables/useExternalData";
 import UserCard from "../components/UserCard.vue";
 
 const props = defineProps<{
   user: User;
 }>();
 
-const score = useScoreAsync(props.user.id);
 const imageUrl = await useBlobImageAsync(props.user.avatarUrl);
 </script>
 

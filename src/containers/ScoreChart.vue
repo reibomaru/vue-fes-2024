@@ -14,6 +14,7 @@ import {
   CategoryScale,
   LinearScale,
 } from "chart.js";
+import { useScoreAsync } from "../composables/useExternalData";
 ChartJS.register(
   Title,
   Tooltip,
@@ -24,10 +25,10 @@ ChartJS.register(
 );
 
 const props = defineProps<{
-  score: Promise<number[]>;
+  userId: string;
 }>();
 
-const score = await props.score;
+const score = await useScoreAsync(props.userId);
 
 const data: ChartData<"bar"> = {
   labels: [
