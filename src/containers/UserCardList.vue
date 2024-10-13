@@ -2,7 +2,11 @@
   <transition mode="out-in">
     <suspense>
       <div class="card-wrapper">
-        <user-card v-for="user in users" :key="user.id" :user="user" />
+        <user-card-container
+          v-for="user in users"
+          :key="user.id"
+          :user="user"
+        />
       </div>
       <template #fallback>
         <div class="card-wrapper">
@@ -16,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import UserCard from "../containers/UserCard.vue";
+import UserCardContainer from "../containers/UserCardContainer.vue";
 import SkeletonUserCard from "../components/SkeletonUserCard.vue";
 import { useUserAsync } from "../composables/useExternalData";
 

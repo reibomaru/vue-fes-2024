@@ -12,7 +12,7 @@
         <score-chart :score="score" />
       </div>
       <template #fallback>
-        <div class="chart skeleton"></div>
+        <skeleton-score-chart />
       </template>
     </suspense>
   </div>
@@ -20,6 +20,7 @@
 
 <script setup lang="ts">
 import ScoreChart from "./ScoreChart.vue";
+import SkeletonScoreChart from "./SkeletonScoreChart.vue";
 
 defineProps<{
   name: string;
