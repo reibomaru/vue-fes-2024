@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <suspense>
-      <user-list />
+      <user-card-list />
       <template #fallback> ...Loading Users </template>
     </suspense>
   </div>
@@ -10,7 +10,7 @@
 <script setup lang="ts">
 import "./assets/reset.scss";
 import "./assets/global.scss";
-import UserList from "./containers/UserList.vue";
+import UserCardList from "./containers/UserCardList.vue";
 </script>
 
 <style lang="scss" scoped>
